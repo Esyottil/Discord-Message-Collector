@@ -1,0 +1,28 @@
+.discord-collector-highlight {
+  background-color: #e8f5e8 !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.discord-collector-progress {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 10000;
+  font-size: 12px;
+}
+
+.collector-status-indicator {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 10px;
+  z-index: 10000;
+  background: #4CAF50;
+  color: white;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 450px; padding: 15px; font-family: Arial, sans-serif; }
+    .container { display: flex; flex-direction: column; gap: 10px; }
+    textarea, input, button { width: 100%; padding: 8px; margin: 5px 0; }
+    .status { padding: 10px; border-radius: 5px; margin: 10px 0; }
+    .progress { width: 100%; height: 20px; background: #f0f0f0; border-radius: 10px; overflow: hidden; }
+    .progress-bar { height: 100%; background: #4CAF50; transition: width 0.3s; }
+    .controls { display: flex; gap: 5px; }
+    button { flex: 1; padding: 8px; cursor: pointer; }
+    .found-message { background: #e8f5e8; padding: 5px; margin: 2px 0; border-radius: 3px; }
+    .warning { background: #fff3cd; color: #856404; padding: 10px; border-radius: 5px; }
+    .user-list { background: #f8f9fa; padding: 10px; border-radius: 5px; }
+    .user-item { display: flex; justify-content: space-between; padding: 2px 0; }
+    .user-id { color: #666; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3>Discord Message Collector</h3>
+    
+    <div class="warning">
+      ⚠️ Используйте с осторожностью. Сбор большого количества сообщений может привести к блокировке аккаунта.
+    </div>
+
+    <div class="user-list">
+      <strong>(contentScript.js) Целевые пользователи:</strong>
+      <div class="user-item">
+        <span>Curret</span>
+        <span class="user-id">0</span>
+      </div>
+    </div>
+
+    <label>Дополнительные пользователи (по одному в строке):</label>
+    <textarea id="additionalUsers" rows="3" placeholder="username1&#10;username2"></textarea>
+
+    <label>Лимит сообщений:</label>
+    <input type="number" id="messageLimit" value="2000" min="1" max="10000">
+
+    <div class="controls">
+      <button id="startBtn" style="background: #4CAF50; color: white;">Старт</button>
+      <button id="pauseBtn" style="background: #ff9800; color: white;">Пауза</button>
+      <button id="stopBtn" style="background: #f44336; color: white;">Стоп</button>
+    </div>
+
+    <div class="progress">
+      <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+    </div>
+
+    <div id="status" class="status">Готов к работе</div>
+
+    <div id="foundMessages">
+      <strong>Найдено сообщений: <span id="messageCount">0</span></strong>
+      <div id="userBreakdown" style="font-size: 0.9em; color: #666; margin-top: 5px;"></div>
+    </div>
+
+    <button id="exportBtn" style="background: #2196F3; color: white;">Экспорт в JSON</button>
+    <button id="quickExportBtn" style="background: #9C27B0; color: white;">Быстрый экспорт</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
